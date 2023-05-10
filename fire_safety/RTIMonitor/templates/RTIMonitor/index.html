@@ -1,0 +1,31 @@
+{% extends 'RTIMonitor/layout.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block context %}
+<div class="dashboard" style="display: flex;">
+    <div class="map" style="flex: 2 0 0; justify-content: flex-start;">
+        <iframe src="https://location.sa.gov.au/viewer/?map=hybrid&x=138.63325&y=-34.98196&z=10&uids=252,253"></iframe>
+    </div>
+    <div class="rss" style="justify-content: flex-end;">
+        <h2>Current incidents</h2>
+        {% for r in rss %}
+                <div class="news-block">
+                    <div class="news">
+
+                        <label>Status: </label>
+                          {% if r.status == 'CONTROLLED' %} <label style="color: #FF6C00;">{{r.status}}</label>
+                          {% elif r.status == 'COMPLETE' %} <label style="color: #0F0;">{{r.status}}</label>
+                          {% elif r.status == 'GOING' %} <label style="color: #F00;">{{r.status}}</label>
+                          {% else %} <label>{{r.status}}</label>
+                          {% endif %}<br>
+                        <label>Place: </label> {{r.title}}<br>
+                        <label>Type: </label> {{r.type}}<br>
+                        <label>First reported: </label> {{r.first_reported}}<br>
+                        <hr class="news-hl">
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

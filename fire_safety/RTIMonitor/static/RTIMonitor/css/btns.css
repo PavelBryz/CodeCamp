@@ -1,0 +1,29 @@
+.btn-add, .btn-upd, .btn-del, .btn-dwl, .btn-shw{
+    color: #0096FF;
+    background: #2c2c2c;
+    border: 3px solid #0096FF;
+    border-radius: 5px;
+    margin-right: 5px;
+    min-width: 10%;
+    transition: border 500ms ease 0s, color 500ms ease 0s;
+}
+.btn-add:hover, .btn-dwl:hover, .btn-shw:hover{
+    border: 3px solid #00FF8C;
+    color: #00FF8C;
+}
+.btn-upd:hover{
+    border: 3px solid #FFE300;
+    color: #FFE300;
+}
+.btn-del:hover{
+    border: 3px solid #FF0000AB;
+    color: #FF0000AB;
+}
+.btn-shw.active{
+    border: 3px solid #00FF8C;
+    color: #00FF8C;
+}
+iframe{
+    width: 98%;
+    height: 150%;
+}

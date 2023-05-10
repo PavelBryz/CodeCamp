@@ -1,0 +1,16 @@
+{% extends 'RTIMonitor/layout.html' %}
+
+{% block title %} Report Incident {% endblock %}
+
+{% block context %}
+    <div class="features">
+        <h1>{{ header_text }}</h1>
+        <form method="post" enctype=multipart/form-data>
+            {% csrf_token %}
+            <label>Date of incident:</label>{{ form.date }}
+            <label>Place of incident:</label>{{ form.place }}
+            <label>Additional information:</label>{{ form.description }}
+            <button class="btn btn-success" type="submit" style="margin: 5px;">{{ btn_text }}</button>
+        </form>
+    </div>
+{% endblock %}

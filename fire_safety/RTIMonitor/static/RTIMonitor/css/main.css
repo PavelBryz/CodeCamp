@@ -1,0 +1,88 @@
+body{
+    background: #ffeca6;
+}
+aside h3{
+    color:  #FF0;
+}
+aside{
+    display: flex;
+    float: down;
+    background: #261e00;
+    width: 100vw;
+    padding: 1%;
+    height: 5%;
+    color: #fff;
+    border-bottom: 5px solid #A1312E;
+}
+.tool-bar{
+    display: flex;
+    flex: 2 0 0;
+    overflow: hidden;
+    padding: 3px;
+}
+.tool-bar.start{
+    justify-content: flex-start;
+}
+.tool-bar.end{
+    justify-content: flex-end;
+}
+.tool-bar a.options{
+    padding: 5px;
+    color:  #FF0;
+    transition: color 500ms ease 0s;
+    text-decoration: None;
+}
+.tool-bar a.options:hover{
+    color:  #A1312E;
+}
+hr{
+    border-left: 5px solid #A1312E;
+    opacity: 1;
+    margin: 0;
+}
+.news-hl{
+  height:5px;
+  border-width:0;
+  background-color:#A1312E;
+ }
+main{
+    padding: 1%;
+    color:  #000;
+}
+h1{
+    text-align: center;
+    font-family: T;
+}
+.underlined{
+    border-bottom: 3px solid #4d4d4d;
+    padding-bottom: 5px;
+}
+th{
+    text-align: center;
+    border: 2px solid #000;
+}
+td{
+    border: 2px solid #000;
+}
+table{
+    width: 100%;
+    border: 3px solid #000;
+}
+.form-holder{
+    border: 5px solid #A1312E;
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #261e00;
+    color: #ff0;
+}
+.logo{
+    width: 5%;
+    padding: 5px;
+}
+.red-line{
+    color: #f00;
+}
+label.tip{
+    margin: 5px;
+}

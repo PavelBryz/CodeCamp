@@ -1,0 +1,18 @@
+{% extends 'RTIMonitor/layout.html' %}
+
+{% block title %} Main {% endblock %}
+{% load crispy_forms_tags %}
+{% block context %}
+
+<div class="form-holder">
+    <h1>Sign in</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div style="display: flex;justify-content: flex-end;padding: 5px;">
+            <button class="btn-add" type="submit">Sign in</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

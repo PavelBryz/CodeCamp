@@ -1,0 +1,84 @@
+{% extends 'RTIMonitor/layout.html' %}
+
+{% block title %} Data analise {% endblock %}
+
+{% block context %}
+<h2>Data analise</h2>
+<div class="features">
+    <form method="post" enctype=multipart/form-data>
+        <div class="checkbox-wrapper-2">
+        <p>
+            <input type="checkbox" id="csv" name="option" value="CSV"
+                   onclick="if (document.getElementById('csv-form').style.display === ''){
+                   document.getElementById('csv-form').style.display = 'none';} else {
+                   document.getElementById('csv-form').style.display = '';}">
+            <label for="csv">Analise CSV</label><br>
+        </p>
+    </div>
+        {% csrf_token %}
+        <div id="csv-form" style="display: none;">
+            Select csv file for analise<br>
+            {{ form }}<br>
+            <button class="btn btn-success" style="margin: 3px;" type="submit">Analise</button>
+        </div>
+    </form>
+    <form method="post" enctype=multipart/form-data>
+        <div class="checkbox-wrapper-2">
+        <p>
+            <input type="checkbox" id="db" name="option" value="DB"
+                   onclick="if (document.getElementById('db-form').style.display === ''){
+                   document.getElementById('db-form').style.display = 'none';} else {
+                   document.getElementById('db-form').style.display = '';}">
+            <label for="db">Analise database</label><br>
+        </p>
+    </div>
+        {% csrf_token %}
+        <div id="db-form" style="display: none;">
+            <button class="btn btn-success" style="margin: 3px;" type="submit">Analise</button>
+        </div>
+    </form>
+    <form method="post" enctype=multipart/form-data>
+        <div class="checkbox-wrapper-2">
+        <p>
+            <input type="checkbox" id="gd" name="option" value="GD"
+                   onclick="if (document.getElementById('get-form').style.display === ''){
+                   document.getElementById('get-form').style.display = 'none';} else {
+                   document.getElementById('get-form').style.display = '';}">
+            <label for="gd">Get last 10 incidents</label><br>
+        </p>
+    </div>
+        {% csrf_token %}
+        <div id="get-form" style="display: none;">
+            <button class="btn btn-success" style="margin: 3px;" type="submit">Get data</button>
+        </div>
+    </form>
+    <div class="results">
+        {% if format_y %}
+        <div class="format_y">
+            <h3>Highlighted Y</h3>
+            {{ format_y|safe  }}
+        </div>
+        {% endif %}
+        {% if sum_y %}
+        <div class="sum-y">
+            <h3>Sum of Y by date</h3>
+            {{ sum_y|safe }}
+        </div>
+        {% endif %}
+        {% if three_y %}
+        <div class="three-y">
+            <h3>Districts, where more or equal to three Y</h3>
+            {{ three_y }}
+        </div>
+        {% endif %}
+        {% if lt %}
+        <div class="three-y">
+            <h3>Last 10 incidents</h3>
+            {% for i in lt %}
+            {{i}}<br>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
